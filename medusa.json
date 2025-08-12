@@ -3,7 +3,7 @@
 		"workers": 10,
 		"workerResetLimit": 50,
 		"timeout": 0,
-		"testLimit": 1000,
+		"testLimit": 0,
 		"shrinkLimit": 5000,
 		"callSequenceLength": 100,
 		"pruneFrequency": 5,
@@ -13,7 +13,7 @@
 			"html",
 			"lcov"
 		],
-		"revertReporterEnabled": false,
+		"revertReporterEnabled": true,
 		"targetContracts": ["KittyInv"],
 		"predeployedContracts": {},
 		"targetContractsBalances": [],

@@ -153,10 +153,15 @@ contract KittyFiTest is Test {
         // user burns 15 KittyCoin
         uint256 toBurn = 15e18;
 
+        uint256 userBalPreBurn = kittyPool.getKittyCoinMeownted(user);
+
         vm.prank(user);
         kittyPool.burnKittyCoin(user, toBurn);
 
+        uint256 userBalPostBurn = kittyPool.getKittyCoinMeownted(user);
+
         assert(kittyPool.getKittyCoinMeownted(user) == amountToMint - toBurn);
+        assert(userBalPreBurn > userBalPostBurn);
     }
 
     modifier userDepositsCollateral() {

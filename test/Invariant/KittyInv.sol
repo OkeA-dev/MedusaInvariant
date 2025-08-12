@@ -34,6 +34,9 @@ contract KittyInv {
 
     uint totalCattyNip;
 
+    uint256 private constant COLLATERAL_PERCENT = 169;
+    uint256 private constant COLLATERAL_PRECISION = 100;
+
     constructor() {
         meowntainer = msg.sender;
     
@@ -112,6 +115,26 @@ contract KittyInv {
 
         assert(wethVault.totalCattyNip() == totalCattyNip);
         assert(userInitialBalance - amount  == userAfterBalance);
+    }
+
+    function test_userMintCattyNip(uint amount) public {
+
+        vm.prank(msg.sender);
+        kittyPool.meowintKittyCoin(amount);
+        // check underCollateral minting 
+        assert(wethVault.getUserVaultMeowllateralInEuros(msg.sender) * COLLATERAL_PRECISION >= kittyCoin.balanceOf(msg.sender) * COLLATERAL_PERCENT);
+    }
+
+    function test_userBurnCattyNip(uint256 amount, address user) public {
+        uint userInitialBalance = kittyCoin.balanceOf(msg.sender);
+
+        vm.prank(msg.sender);
+        kittyPool.burnKittyCoin(user, amount);
+
+        uint userAfterBalance = kittyCoin.balanceOf(msg.sender);
+
+        assert(userAfterBalance - amount == userInitialBalance);
+
     }
 
     
