@@ -21,7 +21,7 @@ build:; forge build --via-ir
 
 compile:; forge compile --via-ir
 
-test :; @forge test --via-ir --fork-url $(SEPOLIA_RPC_URL) 
+test :; @forge test --via-ir --fork-url https://eth-sepolia.g.alchemy.com/v2/51DlD2IJlKqYyazLN35ucbTC_5mNcpTC 
 
 format :; forge fmt
 
