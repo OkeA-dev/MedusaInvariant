@@ -140,6 +140,10 @@ contract KittyInv is PropertiesAsserts {
         assert(wethVault.getUserVaultMeowllateralInEuros(msg.sender)  >= kittyCoin.balanceOf(msg.sender).mulDiv(COLLATERAL_PERCENT, COLLATERAL_PRECISION));
     }
 
+    function test_userKittyCoinisSolvency() public view {
+        assert(wethVault.getUserVaultMeowllateralInEuros(msg.sender)  >= kittyCoin.balanceOf(msg.sender).mulDiv(COLLATERAL_PERCENT, COLLATERAL_PRECISION));
+    }
+
     function test_userBurnCattyNip(uint256 amount, address user) public {
         uint userInitialBalance = kittyCoin.balanceOf(msg.sender);
 
@@ -153,15 +157,15 @@ contract KittyInv is PropertiesAsserts {
     }
 
     function test_ownerSupplyToAave(uint256 amount) public {
+        uint vaultInitialBalance = weth.balanceOf(address(wethVault));
 
-        uint256 vaultInitialBalance = wethVault.totalMeowllateralInVault();
         vm.prank(meowntainer);
         wethVault.purrrCollateralToAave(amount);
+    
+        uint vaultAfterBalance = weth.balanceOf(address(wethVault));
         
-        uint256 vaultAfterBalance = wethVault.totalMeowllateralInVault();
-
+    
         assert(vaultInitialBalance - amount == vaultAfterBalance);
-
 
     }
 

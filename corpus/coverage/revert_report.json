@@ -5,7 +5,7 @@
 			"functionRevertMetrics": {
 				"test_UserDepositsInVault": {
 					"name": "test_UserDepositsInVault",
-					"totalCalls": 592,
+					"totalCalls": 619,
 					"totalReverts": 0,
 					"pct": 0,
 					"prevPct": 0,
@@ -13,99 +13,176 @@
 				},
 				"test_UserWithdrawsInVault": {
 					"name": "test_UserWithdrawsInVault",
-					"totalCalls": 433,
-					"totalReverts": 190,
-					"pct": 0.4387990762124711,
-					"prevPct": 0.4573002754820937,
+					"totalCalls": 435,
+					"totalReverts": 199,
+					"pct": 0.4574712643678161,
+					"prevPct": 0.4382284382284382,
 					"revertReasonMetrics": {
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 177,
-							"pct": 0.40877598152424943,
-							"prevPct": 0.43526170798898073
+							"count": 189,
+							"pct": 0.43448275862068964,
+							"prevPct": 0.3916083916083916
 						},
 						"panic: division by zero": {
 							"reason": "panic: division by zero",
-							"count": 13,
-							"pct": 0.03002309468822171,
-							"prevPct": 0.02203856749311295
+							"count": 10,
+							"pct": 0.022988505747126436,
+							"prevPct": 0.046620046620046623
 						}
 					}
 				},
 				"test_ownerSupplyToAave": {
 					"name": "test_ownerSupplyToAave",
-					"totalCalls": 197,
-					"totalReverts": 197,
+					"totalCalls": 81,
+					"totalReverts": 81,
 					"pct": 1,
 					"prevPct": 1,
 					"revertReasonMetrics": {
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 152,
-							"pct": 0.7715736040609137,
-							"prevPct": 0.723404255319149
+							"count": 63,
+							"pct": 0.7777777777777778,
+							"prevPct": 0.7352941176470589
 						},
 						"unknown": {
 							"reason": "unknown",
-							"count": 45,
-							"pct": 0.22842639593908629,
-							"prevPct": 0.2765957446808511
+							"count": 18,
+							"pct": 0.2222222222222222,
+							"prevPct": 0.2647058823529412
 						}
 					}
 				},
 				"test_userBurnCattyNip": {
 					"name": "test_userBurnCattyNip",
-					"totalCalls": 278,
-					"totalReverts": 241,
-					"pct": 0.8669064748201439,
-					"prevPct": 0.851063829787234,
+					"totalCalls": 306,
+					"totalReverts": 270,
+					"pct": 0.8823529411764706,
+					"prevPct": 0.8778877887788779,
 					"revertReasonMetrics": {
 						"ERC20InsufficientBalance": {
 							"reason": "ERC20InsufficientBalance",
 							"count": 1,
-							"pct": 0.0035971223021582736,
-							"prevPct": 0
+							"pct": 0.0032679738562091504,
+							"prevPct": 0.0033003300330033004
 						},
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 240,
-							"pct": 0.8633093525179856,
-							"prevPct": 0.851063829787234
+							"count": 269,
+							"pct": 0.8790849673202614,
+							"prevPct": 0.8745874587458746
 						}
 					}
 				},
 				"test_userMintCattyNip": {
 					"name": "test_userMintCattyNip",
-					"totalCalls": 368,
-					"totalReverts": 255,
-					"pct": 0.6929347826086957,
-					"prevPct": 0.6666666666666666,
+					"totalCalls": 398,
+					"totalReverts": 280,
+					"pct": 0.7035175879396985,
+					"prevPct": 0.710997442455243,
 					"revertReasonMetrics": {
 						"KittyPool__NotEnoughMeowllateralPurrrr": {
 							"reason": "KittyPool__NotEnoughMeowllateralPurrrr",
-							"count": 111,
-							"pct": 0.3016304347826087,
-							"prevPct": 0.29393939393939394
+							"count": 133,
+							"pct": 0.3341708542713568,
+							"prevPct": 0.28388746803069054
 						},
 						"MathOverflowedMulDiv": {
 							"reason": "MathOverflowedMulDiv",
-							"count": 104,
-							"pct": 0.2826086956521739,
-							"prevPct": 0.2818181818181818
+							"count": 114,
+							"pct": 0.2864321608040201,
+							"prevPct": 0.2966751918158568
 						},
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
 							"count": 25,
-							"pct": 0.06793478260869565,
-							"prevPct": 0.07272727272727272
+							"pct": 0.06281407035175879,
+							"prevPct": 0.06905370843989769
 						},
 						"panic: division by zero": {
 							"reason": "panic: division by zero",
-							"count": 15,
-							"pct": 0.04076086956521739,
-							"prevPct": 0.01818181818181818
+							"count": 8,
+							"pct": 0.020100502512562814,
+							"prevPct": 0.061381074168797956
 						}
 					}
+				}
+			}
+		},
+		"stdError": {
+			"name": "stdError",
+			"functionRevertMetrics": {
+				"arithmeticError": {
+					"name": "arithmeticError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"assertionError": {
+					"name": "assertionError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"divisionError": {
+					"name": "divisionError",
+					"totalCalls": 2,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"encodeStorageError": {
+					"name": "encodeStorageError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"enumConversionError": {
+					"name": "enumConversionError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"indexOOBError": {
+					"name": "indexOOBError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"memOverflowError": {
+					"name": "memOverflowError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"popError": {
+					"name": "popError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
+				},
+				"zeroVarError": {
+					"name": "zeroVarError",
+					"totalCalls": 1,
+					"totalReverts": 0,
+					"pct": 0,
+					"prevPct": 0,
+					"revertReasonMetrics": {}
 				}
 			}
 		}
