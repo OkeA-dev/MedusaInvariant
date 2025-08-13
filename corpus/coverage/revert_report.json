@@ -5,138 +5,107 @@
 			"functionRevertMetrics": {
 				"test_UserDepositsInVault": {
 					"name": "test_UserDepositsInVault",
-					"totalCalls": 674,
-					"totalReverts": 401,
-					"pct": 0.5949554896142433,
+					"totalCalls": 592,
+					"totalReverts": 0,
+					"pct": 0,
 					"prevPct": 0,
-					"revertReasonMetrics": {
-						"panic: arithmetic underflow/overflow": {
-							"reason": "panic: arithmetic underflow/overflow",
-							"count": 401,
-							"pct": 0.5949554896142433,
-							"prevPct": 0
-						}
-					}
+					"revertReasonMetrics": {}
 				},
 				"test_UserWithdrawsInVault": {
 					"name": "test_UserWithdrawsInVault",
-					"totalCalls": 581,
-					"totalReverts": 553,
-					"pct": 0.9518072289156626,
-					"prevPct": 0,
+					"totalCalls": 433,
+					"totalReverts": 190,
+					"pct": 0.4387990762124711,
+					"prevPct": 0.4573002754820937,
 					"revertReasonMetrics": {
-						"MathOverflowedMulDiv": {
-							"reason": "MathOverflowedMulDiv",
-							"count": 130,
-							"pct": 0.22375215146299485,
-							"prevPct": 0
-						},
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 405,
-							"pct": 0.6970740103270223,
-							"prevPct": 0
+							"count": 177,
+							"pct": 0.40877598152424943,
+							"prevPct": 0.43526170798898073
 						},
 						"panic: division by zero": {
 							"reason": "panic: division by zero",
-							"count": 18,
-							"pct": 0.03098106712564544,
-							"prevPct": 0
+							"count": 13,
+							"pct": 0.03002309468822171,
+							"prevPct": 0.02203856749311295
+						}
+					}
+				},
+				"test_ownerSupplyToAave": {
+					"name": "test_ownerSupplyToAave",
+					"totalCalls": 197,
+					"totalReverts": 197,
+					"pct": 1,
+					"prevPct": 1,
+					"revertReasonMetrics": {
+						"panic: arithmetic underflow/overflow": {
+							"reason": "panic: arithmetic underflow/overflow",
+							"count": 152,
+							"pct": 0.7715736040609137,
+							"prevPct": 0.723404255319149
+						},
+						"unknown": {
+							"reason": "unknown",
+							"count": 45,
+							"pct": 0.22842639593908629,
+							"prevPct": 0.2765957446808511
 						}
 					}
 				},
 				"test_userBurnCattyNip": {
 					"name": "test_userBurnCattyNip",
-					"totalCalls": 453,
-					"totalReverts": 436,
-					"pct": 0.9624724061810155,
-					"prevPct": 0,
+					"totalCalls": 278,
+					"totalReverts": 241,
+					"pct": 0.8669064748201439,
+					"prevPct": 0.851063829787234,
 					"revertReasonMetrics": {
+						"ERC20InsufficientBalance": {
+							"reason": "ERC20InsufficientBalance",
+							"count": 1,
+							"pct": 0.0035971223021582736,
+							"prevPct": 0
+						},
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 436,
-							"pct": 0.9624724061810155,
-							"prevPct": 0
+							"count": 240,
+							"pct": 0.8633093525179856,
+							"prevPct": 0.851063829787234
 						}
 					}
 				},
 				"test_userMintCattyNip": {
 					"name": "test_userMintCattyNip",
-					"totalCalls": 449,
-					"totalReverts": 418,
-					"pct": 0.9309576837416481,
-					"prevPct": 0,
+					"totalCalls": 368,
+					"totalReverts": 255,
+					"pct": 0.6929347826086957,
+					"prevPct": 0.6666666666666666,
 					"revertReasonMetrics": {
 						"KittyPool__NotEnoughMeowllateralPurrrr": {
 							"reason": "KittyPool__NotEnoughMeowllateralPurrrr",
-							"count": 98,
-							"pct": 0.2182628062360802,
-							"prevPct": 0
+							"count": 111,
+							"pct": 0.3016304347826087,
+							"prevPct": 0.29393939393939394
 						},
 						"MathOverflowedMulDiv": {
 							"reason": "MathOverflowedMulDiv",
-							"count": 299,
-							"pct": 0.6659242761692651,
-							"prevPct": 0
+							"count": 104,
+							"pct": 0.2826086956521739,
+							"prevPct": 0.2818181818181818
 						},
 						"panic: arithmetic underflow/overflow": {
 							"reason": "panic: arithmetic underflow/overflow",
-							"count": 7,
-							"pct": 0.015590200445434299,
-							"prevPct": 0
+							"count": 25,
+							"pct": 0.06793478260869565,
+							"prevPct": 0.07272727272727272
 						},
 						"panic: division by zero": {
 							"reason": "panic: division by zero",
-							"count": 14,
-							"pct": 0.031180400890868598,
-							"prevPct": 0
+							"count": 15,
+							"pct": 0.04076086956521739,
+							"prevPct": 0.01818181818181818
 						}
 					}
-				}
-			}
-		},
-		"stdError": {
-			"name": "stdError",
-			"functionRevertMetrics": {
-				"assertionError": {
-					"name": "assertionError",
-					"totalCalls": 1,
-					"totalReverts": 0,
-					"pct": 0,
-					"prevPct": 0,
-					"revertReasonMetrics": {}
-				},
-				"divisionError": {
-					"name": "divisionError",
-					"totalCalls": 1,
-					"totalReverts": 0,
-					"pct": 0,
-					"prevPct": 0,
-					"revertReasonMetrics": {}
-				},
-				"enumConversionError": {
-					"name": "enumConversionError",
-					"totalCalls": 1,
-					"totalReverts": 0,
-					"pct": 0,
-					"prevPct": 0,
-					"revertReasonMetrics": {}
-				},
-				"indexOOBError": {
-					"name": "indexOOBError",
-					"totalCalls": 1,
-					"totalReverts": 0,
-					"pct": 0,
-					"prevPct": 0,
-					"revertReasonMetrics": {}
-				},
-				"popError": {
-					"name": "popError",
-					"totalCalls": 1,
-					"totalReverts": 0,
-					"pct": 0,
-					"prevPct": 0,
-					"revertReasonMetrics": {}
 				}
 			}
 		}

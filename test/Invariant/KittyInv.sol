@@ -12,8 +12,12 @@ import { MockV3Aggregator } from "@chainlink/contracts/src/v0.8/tests/MockV3Aggr
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { WETH9Mock } from "./Mocks/MockWeth.sol";
 import "./Utils/Cheats.sol";
+import "./Utils/PropertyHelper.sol";
+import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
-contract KittyInv {
+contract KittyInv is PropertiesAsserts {
+    using Math for uint256;
+
     StdCheats vm = StdCheats(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D);
 
     KittyCoin kittyCoin;
@@ -81,6 +85,7 @@ contract KittyInv {
     // }
 
      function test_UserDepositsInVault(uint256 toDeposit) public {
+        toDeposit = clampBetween(toDeposit, 1 ether, 100_000 ether);
         
         weth.mint(msg.sender, toDeposit);
 
@@ -96,12 +101,22 @@ contract KittyInv {
 
         uint256 userAfterBalance = wethVault.userToCattyNip(msg.sender);
 
+        if (wethVault.totalMeowllateralInVault() > 0 ) {
+           uint userShare =  toDeposit.mulDiv(wethVault.totalCattyNip(), wethVault.totalMeowllateralInVault());
+            assert(wethVault.userToCattyNip(msg.sender) - userShare == userInitialBalance);
+        }
+
         assert(userAfterBalance - userInitialBalance == toDeposit);
         assert(wethVault.totalCattyNip() == totalCattyNip);
         
     }
+    // Check the total weth token value at every instance
+    function test_vaultWethBalance() public view {
+        assert(weth.balanceOf(address(wethVault)) == totalCattyNip);
+    }
 
     function test_UserWithdrawsInVault(uint amount) public {
+        amount = clampBetween(amount, 1 ether, 100_000 ether);
 
         uint256 userInitialBalance = wethVault.userToCattyNip(msg.sender);
         
@@ -122,7 +137,7 @@ contract KittyInv {
         vm.prank(msg.sender);
         kittyPool.meowintKittyCoin(amount);
         // check underCollateral minting 
-        assert(wethVault.getUserVaultMeowllateralInEuros(msg.sender) * COLLATERAL_PRECISION >= kittyCoin.balanceOf(msg.sender) * COLLATERAL_PERCENT);
+        assert(wethVault.getUserVaultMeowllateralInEuros(msg.sender)  >= kittyCoin.balanceOf(msg.sender).mulDiv(COLLATERAL_PERCENT, COLLATERAL_PRECISION));
     }
 
     function test_userBurnCattyNip(uint256 amount, address user) public {
@@ -133,7 +148,20 @@ contract KittyInv {
 
         uint userAfterBalance = kittyCoin.balanceOf(msg.sender);
 
-        assert(userAfterBalance - amount == userInitialBalance);
+        assert(userAfterBalance + amount == userInitialBalance);
+
+    }
+
+    function test_ownerSupplyToAave(uint256 amount) public {
+
+        uint256 vaultInitialBalance = wethVault.totalMeowllateralInVault();
+        vm.prank(meowntainer);
+        wethVault.purrrCollateralToAave(amount);
+        
+        uint256 vaultAfterBalance = wethVault.totalMeowllateralInVault();
+
+        assert(vaultInitialBalance - amount == vaultAfterBalance);
+
 
     }
 
